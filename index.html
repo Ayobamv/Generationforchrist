@@ -1,64 +1,174 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to Our Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
+  <title>Welcome Page</title>
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
+    /* Header */
+    header {
+      background-color: #222;
+      height: 60px;
+      padding: 10px;
+    }
 
-        h1 {
-            font-size: 2em;
-            margin: 0;
-        }
+    header img {
+      height: 40px;
+      width: auto;
+      margin-top: 5px;
+      margin-left: 10px;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        #welcome-message {
-            font-size: 1.5em;
-            margin-top: 20px;
-        }
+    .navbar-toggle {
+      display: none;
+      cursor: pointer;
+      padding: 10px;
+    }
 
-        button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
+    .navbar-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin-bottom: 5px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin-left: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 15px;
+    }
+
+    /* Content */
+    #content {
+      margin: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    /* Media Query for Responsive Design */
+    @media screen and (max-width: 768px) {
+      .navbar ul {
+        display: none;
+      }
+
+      .navbar-toggle {
+        display: block;
+      }
+
+      .navbar-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .navbar-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      .navbar-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      .navbar-toggle.active {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        z-index: 999;
+      }
+
+      .navbar.active ul {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #222;
+      }
+
+      .navbar.active ul li {
+        margin: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Website</h1>
-    </header>
-    <div class="container">
-        <p id="welcome-message">Thank you for visiting our website. We're here to provide you with the best experience.</p>
-        <button id="explore-button">Explore</button>
+  <header>
+    <div class="navbar">
+      <img src="logo.png" alt="Web Logo">
+      <div class="navbar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <script>
-        // JavaScript code can be added here to make the page interactive
-        document.getElementById('explore-button').addEventListener('click', function () {
-            alert('Welcome to our website! Feel free to explore.');
-        });
-    </script>
+  <div id="content">
+    <h1>Welcome to our Interactive Webpage!</h1>
+    <p>This is an interactive webpage that utilizes CSS, JavaScript, and HTML.</p>
+  </div>
+
+  <footer>
+    <nav>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">FAQs</a>
+    </nav>
+  </footer>
+
+  <script>
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbar = document.querySelector('.navbar');
+
+    navbarToggle.addEventListener('click', () => {
+      navbarToggle.classList.toggle('active');
+      navbar.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
